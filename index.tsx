@@ -4,7 +4,7 @@ import ReactDOM from 'https://esm.sh/react-dom@18.3.1/client';
 const App = () => {
     // Initial bookings data
     const initialBookings = [
-        { id: 1, name: 'Rapat Tim Marketing', date: '2025-07-28', startTime: '09:00', endTime: '10:30', room: 'Aula Edekkweis' },
+        { id: 1, name: 'Rapat Tim Marketing', date: '2025-07-28', startTime: '09:00', endTime: '10:30', room: 'Aula Edelweiss' },
         { id: 2, name: 'Presentasi Klien', date: '2025-07-28', startTime: '11:00', endTime: '12:00', room: 'Zoom Cempaka' },
         { id: 3, name: 'Daily Standup', date: '2025-07-29', startTime: '08:30', endTime: '09:00', room: 'Zoom Cempaka' },
     ];
@@ -14,7 +14,7 @@ const App = () => {
     const [date, setDate] = useState('');
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
-    const [room, setRoom] = useState('Aula Edekkweis');
+    const [room, setRoom] = useState('Aula Edelweiss');
     
     const sortedBookings = [...bookings].sort((a, b) => {
         const dateA = new Date(`${a.date}T${a.startTime}`);
@@ -45,7 +45,7 @@ const App = () => {
         setDate('');
         setStartTime('');
         setEndTime('');
-        setRoom('Aula Edekkweis');
+        setRoom('Aula Edelweiss');
     };
 
     return (
@@ -138,3 +138,4 @@ const App = () => {
 const container = document.getElementById('app');
 const root = ReactDOM.createRoot(container);
 root.render(<App />);
+
