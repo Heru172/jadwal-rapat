@@ -1,4 +1,4 @@
-import React, { useState } from 'https://esm.sh/react@18.3.1';
+import React, { useState, useMemo } from 'https://esm.sh/react@18.3.1';
 import ReactDOM from 'https://esm.sh/react-dom@18.3.1/client';
 
 const App = () => {
@@ -14,13 +14,15 @@ const App = () => {
     const [date, setDate] = useState('');
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
-    const [room, setRoom] = useState('Aula Edelweiss');
+    const [room, setRoom] = useState('Aula Edekkweis');
     
-    const sortedBookings = [...bookings].sort((a, b) => {
-        const dateA = new Date(`${a.date}T${a.startTime}`);
-        const dateB = new Date(`${b.date}T${b.startTime}`);
-        return dateA.getTime() - dateB.getTime();
-    });
+    const sortedBookings = useMemo(() => {
+        return [...bookings].sort((a, b) => {
+            const dateA = new Date(`${a.date}T${a.startTime}`);
+            const dateB = new Date(`${b.date}T${b.startTime}`);
+            return dateA.getTime() - dateB.getTime();
+        });
+    }, [bookings]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -45,7 +47,7 @@ const App = () => {
         setDate('');
         setStartTime('');
         setEndTime('');
-        setRoom('Aula Edelweiss');
+        setRoom('Aula Edekkweis');
     };
 
     return (
@@ -98,7 +100,7 @@ const App = () => {
                         <div className="form-group">
                             <label htmlFor="room">Ruangan</label>
                             <select id="room" value={room} onChange={(e) => setRoom(e.target.value)} required>
-                                <option value="Aula Edekkweis">Aula Edekkweis</option>
+                                <option value="Aula Edeleiss">Aula Edekkweis</option>
                                 <option value="Zoom Cempaka">Zoom Cempaka</option>
                             </select>
                         </div>
@@ -138,4 +140,12 @@ const App = () => {
 const container = document.getElementById('app');
 const root = ReactDOM.createRoot(container);
 root.render(<App />);
+        </>
+    );
+};
+
+const container = document.getElementById('app');
+const root = ReactDOM.createRoot(container);
+root.render(<App />);
+
 
