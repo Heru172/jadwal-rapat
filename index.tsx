@@ -14,7 +14,7 @@ const App = () => {
     const [date, setDate] = useState('');
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
-    const [room, setRoom] = useState('Aula Edekkweis');
+    const [room, setRoom] = useState('Aula Edelweiss');
     
     const sortedBookings = useMemo(() => {
         return [...bookings].sort((a, b) => {
@@ -47,7 +47,7 @@ const App = () => {
         setDate('');
         setStartTime('');
         setEndTime('');
-        setRoom('Aula Edekkweis');
+        setRoom('Aula Edelweiss');
     };
 
     return (
@@ -100,7 +100,7 @@ const App = () => {
                         <div className="form-group">
                             <label htmlFor="room">Ruangan</label>
                             <select id="room" value={room} onChange={(e) => setRoom(e.target.value)} required>
-                                <option value="Aula Edeleiss">Aula Edekkweis</option>
+                                <option value="Aula Edelweiss">Aula Edelweiss</option>
                                 <option value="Zoom Cempaka">Zoom Cempaka</option>
                             </select>
                         </div>
@@ -147,5 +147,6 @@ root.render(<App />);
 const container = document.getElementById('app');
 const root = ReactDOM.createRoot(container);
 root.render(<App />);
+
 
 
